@@ -1,0 +1,18 @@
+services:
+       - type: web
+         name: printsmithllc-website
+         runtime: node
+         plan: free
+         region: oregon
+         repo: https://github.com/printsmithllc/website
+         branch: main
+         buildCommand: npm install
+         startCommand: npm start
+         autoDeploy: false
+         envVars:
+           - key: NODE_ENV
+             value: production
+           - key: PORT
+             sync: false
+           - key: NPM_CONFIG_REGISTRY
+             value: https://registry.npmjs.org/
